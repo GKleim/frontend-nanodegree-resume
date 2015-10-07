@@ -1,36 +1,72 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
+var work = {
+    "jobs": [
+        {
+            "employer": "Dow Chemical",
+            "title": "Process Engineer",
+            "location": "Houston, TX",
+            "dates": "2014 - Present",
+            "description": "Design chemical processes. This includes designing hydraulic systems, heat transfer systems, and associated safety systems."
+        },
+        {
+            "employer": "The Ohio State University",
+            "title": "General Chemistry Lab Teaching Assistanct",
+            "location": "Columbus, OH",
+            "dates": "2011 - 2013",
+            "description": "Teach and supervise lab classes. Grade lab reports and tutor students in general chemistry topics"
+        }
+    ]
+}
 
-//var awesomeThoughts = "I am Geoff Kleimeyer and I am AWESOME!";
-//var funThoughts = awesomeThoughts.replace("AWESOME","FUN")
-//console.log(awesomeThoughts);
-//$("#main").append(funThoughts);
-
-var name = "Geoff Kleimeyer";
-var role = "Chemical Engineer";
-var skills = ["math", "programming", "engineering"];
+var projects = {
+    "projects": [
+        {
+            "title": "Dow Agrosciences",
+            "dates": "Feb 2014 - Jun 2014",
+            "description": "Hydraulic calculations.",
+            "images": [
+                "url here"
+            ]
+        },
+        {
+            "title": "Polyethylene",
+            "dates": "Jun 2014 - Jan 2015",
+            "description": "Instruments, GMISS, hydraulic hammer, equipment datasheets",
+            "images": [
+                "url here"
+            ]
+        },
+        {
+            "title": "PS&F",
+            "dates": "Jan 2015 - Aug 2015",
+            "description": "Utilities, rundown, vacuum, filter startup, and LOPA.",
+            "images": [
+                "url here"
+            ]
+        },
+        {
+            "title": "Monomers & Coatings",
+            "dates": "Aug 2015 - present",
+            "description": "Heaters and product transfer system.",
+            "images": [
+                "url here"
+            ]
+        }
+    ]
+}
 
 var bio = {
-	"name" : "Geoff Kleimeyer",
-	"role" : "Chemical Engineer",
-	"contacts" : {
-		"mobile" : "513-509-4300",
-		"email" : "geoff.kleimeyer@gmail.com",
-		"github" : "GKleim",
-		"twitter" : "@GKleim",
-		"location" : "Houston"
-	},
-	"bioPic" : "images/me.jpg",
-	"welcomeMessage" : "Welcome",
-	"skills" : skills
-};
-
-var work = {};
-work.employer = "Dow Chemical";
-work.position = "process engineer";
-work.dates = "2014 - present";
-work.location = "Houston";
+    "name": "Geoff Kleimeyer",
+    "role": "Chemical Engineer",
+    "contacts": {
+        "mobile": "513-509-4300",
+        "email": "geoff.kleimeyer@gmail.com",
+        "github": "GKleim",
+        "twitter": "@GKleim",
+        "location": "Houston, TX"
+    },
+    "bioPic": "images/me.jpg",
+    "welcomeMessage": "Welcome"
+}
 
 var education = {
     "schools": [
@@ -44,7 +80,8 @@ var education = {
             "minors": [
                 "Economics"
             ],
-            "dates": 2013
+            "dates": 2013,
+            "url": "http://www.osu.edu"
         },
         {
             "name": "Udacity",
@@ -53,7 +90,8 @@ var education = {
             "majors": [
                 "Front End Developer"
             ],
-            "dates": 2015
+            "dates": 2015,
+            "url": "http://www.udacity.com"
         }
     ],
     "onlineCourses": [
@@ -65,29 +103,3 @@ var education = {
         }
     ]
 }
-
-education["name"] = "The Ohio State University";
-education["dates"] = "2009 - 2013";
-education["location"] = "Columbus, OH";
-
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-//var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-var formattedWorkPosition = HTMLworkTitle.replace("%data%", work.position);
-var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMessage);
-$("#header").append(HTMLskillsStart);
-//$("#header").append(formattedSkills);
-$("#workExperience").append(HTMLworkStart);
-$("#workExperience").append(formattedWorkPosition);
-$("#education").append(HTMLschoolStart);
-$("#education").append(formattedSchoolName);
-
-
-
