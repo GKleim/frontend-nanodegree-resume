@@ -9,7 +9,7 @@ var work = {
         },
         {
             "employer": "The Ohio State University",
-            "title": "General Chemistry Lab Teaching Assistanct",
+            "title": "General Chemistry Lab Teaching Assistant",
             "location": "Columbus, OH",
             "dates": "2011 - 2013",
             "description": "Teach and supervise lab classes. Grade lab reports and tutor students in general chemistry topics"
@@ -65,7 +65,12 @@ var bio = {
         "location": "Houston, TX"
     },
     "bioPic": "images/me.jpg",
-    "welcomeMessage": "Welcome"
+    "welcomeMessage": "Welcome",
+    "skills" : [
+        "math",
+        "computer programming",
+        "juggling"
+        ]
 }
 
 var education = {
@@ -103,3 +108,38 @@ var education = {
         }
     ]
 }
+
+$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
+$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+
+$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+
+$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
+$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+
+if(bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    for(skill in bio.skills) {
+        $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));       
+    }
+}else{
+    console.log("No skills to post");
+}
+
+if(work.jobs.length > 0) {
+    var formattedEmployer = "";
+    var formattedTitle = "";
+    $("#workExperience").append(HTMLworkStart);
+    for(job in work.jobs) {
+        formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        $(".work-entry:last").append(formattedEmployer + formattedTitle);       
+    }
+}else{
+    console.log("No jobs to post");
+}
+
