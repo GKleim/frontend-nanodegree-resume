@@ -242,9 +242,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 //  map.fitBounds(mapBounds);
 //});
 
-function inName(inputName) {
+function inName() {
+  var inputName = bio.name;
   var spaceLoc = inputName.indexOf(" ");
   var firstName = inputName.slice(0,spaceLoc);
+  firstName = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
   var lastName = inputName.slice(spaceLoc);
 
   var outputName = firstName + lastName.toUpperCase();

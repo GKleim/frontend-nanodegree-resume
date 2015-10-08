@@ -1,6 +1,6 @@
 var work = {
-    "jobs": [
-        {
+  "jobs": [
+      {
             "employer": "Dow Chemical",
             "title": "Process Engineer",
             "location": "Houston, TX",
@@ -69,7 +69,8 @@ var bio = {
     "skills" : [
         "math",
         "computer programming",
-        "juggling"
+        "juggling",
+        "delivering things"
         ]
 }
 
@@ -146,3 +147,4 @@ if(work.jobs.length > 0) {
     console.log("No jobs to post");
 }
 
+$("#main").append(internationalizeButton)
