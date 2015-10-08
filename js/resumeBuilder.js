@@ -24,7 +24,7 @@ var projects = {
             "dates": "Feb 2014 - Jun 2014",
             "description": "Hydraulic calculations.",
             "images": [
-                "url here"
+                "http://placehold.it/555x300"
             ]
         },
         {
@@ -32,7 +32,7 @@ var projects = {
             "dates": "Jun 2014 - Jan 2015",
             "description": "Instruments, GMISS, hydraulic hammer, equipment datasheets",
             "images": [
-                "url here"
+                "http://placehold.it/555x300"
             ]
         },
         {
@@ -40,7 +40,7 @@ var projects = {
             "dates": "Jan 2015 - Aug 2015",
             "description": "Utilities, rundown, vacuum, filter startup, and LOPA.",
             "images": [
-                "url here"
+                 "http://placehold.it/555x300"
             ]
         },
         {
@@ -48,7 +48,7 @@ var projects = {
             "dates": "Aug 2015 - present",
             "description": "Heaters and product transfer system.",
             "images": [
-                "url here"
+                 "http://placehold.it/555x300"
             ]
         }
     ]
@@ -148,3 +148,21 @@ if(work.jobs.length > 0) {
 }
 
 $("#main").append(internationalizeButton)
+
+projects.display = function() {
+  for(project in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
+    var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+    $(".project-entry:last").append(formattedprojectTitle);
+    var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+    $(".project-entry:last").append(formattedprojectDates);
+    var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+    $(".project-entry:last").append(formattedprojectDescription);
+    for(image in projects.projects[project].images) {
+      var formattedprojectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+      $(".project-entry:last").append(formattedprojectImage);
+    }
+  }
+}
+
+projects.display();
