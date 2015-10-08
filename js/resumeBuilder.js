@@ -137,7 +137,10 @@ if(work.jobs.length > 0) {
     for(job in work.jobs) {
         formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
         formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-        $(".work-entry:last").append(formattedEmployer + formattedTitle);       
+        $(".work-entry:last").append(formattedEmployer + formattedTitle);
+        $(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
+        $(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
+        $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));                  
     }
 }else{
     console.log("No jobs to post");
