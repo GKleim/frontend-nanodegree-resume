@@ -241,3 +241,12 @@ Uncomment the code below when you're ready to implement a Google Map!
   //Make sure the map bounds get updated on page resize
 //  map.fitBounds(mapBounds);
 //});
+
+function inName(inputName) {
+  var spaceLoc = inputName.indexOf(" ");
+  var firstName = inputName.slice(0,spaceLoc);
+  var lastName = inputName.slice(spaceLoc);
+
+  var outputName = firstName + lastName.toUpperCase();
+  return outputName;
+}
