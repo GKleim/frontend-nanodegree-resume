@@ -233,22 +233,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
-
-function inName() {
-  var inputName = bio.name;
-  var spaceLoc = inputName.indexOf(" ");
-  var firstName = inputName.slice(0,spaceLoc);
-  firstName = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
-  var lastName = inputName.slice(spaceLoc);
-
-  var outputName = firstName + lastName.toUpperCase();
-  return outputName;
-}
+  map.fitBounds(mapBounds);
+});

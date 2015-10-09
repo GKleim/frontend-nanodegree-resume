@@ -78,7 +78,7 @@ var education = {
     "schools": [
         {
             "name": "The Ohio State University",
-            "city": "Columbus, OH",
+            "location": "Columbus, OH",
             "degree": "BS",
             "majors": [
                 "Chemical Engineering"
@@ -91,7 +91,7 @@ var education = {
         },
         {
             "name": "Udacity",
-            "city": "virtual",
+            "location": "Houston, TX",
             "degree": "Nanodegree",
             "majors": [
                 "Front End Developer"
@@ -149,6 +149,8 @@ if(work.jobs.length > 0) {
 
 $("#main").append(internationalizeButton)
 
+$("#mapDiv").append(googleMap);
+
 projects.display = function() {
   for(project in projects.projects) {
     $("#projects").append(HTMLprojectStart);
@@ -158,11 +160,24 @@ projects.display = function() {
     $(".project-entry:last").append(formattedprojectDates);
     var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
     $(".project-entry:last").append(formattedprojectDescription);
-    for(image in projects.projects[project].images) {
-      var formattedprojectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-      $(".project-entry:last").append(formattedprojectImage);
+    if(projects.projects[project].images.length > 0) {
+      for(image in projects.projects[project].images) {
+        var formattedprojectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+        $(".project-entry:last").append(formattedprojectImage);
+      }
     }
   }
 }
 
 projects.display();
+
+function inName() {
+  var inputName = bio.name;
+  var spaceLoc = inputName.indexOf(" ");
+  var firstName = inputName.slice(0,spaceLoc);
+  firstName = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
+  var lastName = inputName.slice(spaceLoc);
+
+  var outputName = firstName + lastName.toUpperCase();
+  return outputName;
+}
